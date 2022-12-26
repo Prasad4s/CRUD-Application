@@ -1,0 +1,50 @@
+<div class="container mt-5">
+
+    <!--show error msg-->
+    <div *ngIf="errormsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <form [formGroup]="studentForm" >
+        <div class="col-lg-4 mt-2">
+            <p>Name: <input type="text" class="form-control" formControlName="fname" placeholder="Enter First Name"></p>
+        </div>
+        
+        <div class="col-lg-4 mt-2">
+            Surname: <input type="text" class="form-control" formControlName="lname" placeholder="Enter Surname">
+        </div>
+        
+        <div class="col-lg-4 mt-2">
+            Age: <input type="text" class="form-control" formControlName="age" placeholder="Enter Age">
+        </div>
+
+        
+        <div class="col-lg-4 mt-2">
+            Gender: <input type="text" class="form-control" formControlName="gender"  placeholder="Enter Gender">
+        </div>
+        
+        <div class="col-lg-4 mt-2">
+            Address: <input type="text" class="form-control" formControlName="address"  placeholder="Enter Address">
+        </div>
+        
+        <div class="col-lg-4 mt-2">
+            Parent Phone number: <input type="text" class="form-control" formControlName="pmobile" placeholder="Enter Phone number">
+        </div>
+        
+        <div class="col-lg-4 mt-2" *ngIf="!getparamid" (click)="studentSubmit()">
+            <button class="btn btn-primary btn-sm">Create</button>
+        </div>
+
+        <div class="col-lg-4 mt-2" *ngIf='getparamid' (click)="studentUpdate()">
+            <button class="btn btn-dark btn-sm">Update</button>
+        </div>
+    </form>
+
+
+</div>
